@@ -1,0 +1,23 @@
+@use "variables";
+
+body {
+  margin: 0;
+  background-color: variables.$bg;
+  color: var(--text);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+button {
+  padding: 20px 10px;
+  background-color: brown;
+  color: peach;
+  size: 1.5rem;
+}

@@ -14,3 +14,15 @@
   After call npm run build babel will transform js code to older versions (for vast compatibility)
 
 4. Updating webpack.config.js adding mode switch from prod to dev and updating package.json scripts adding different command "build-dev": "webpack" for dev and changing "build" command with "NODE_ENV=production webpack"
+
+5. CSS loader.
+  5.1. Installing css-loader and mini-css-extract-plugin.
+  There is style-loader as alternative. It injected styles in js bundler, whereas mini-css-extract-plugin is create recources (one final .css file).
+
+  style-loader - for partial css.
+  mini-css-extract-plugin - for one big .css file.
+
+  5.2. Updating webpack.config.js with one more rule for .css files.
+    Adding plugins field with array contained "mini-css-extract-plugin" object created inside it.
+
+  5.3. Adding .broserslistrc for trasform css for compatibility.

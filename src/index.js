@@ -1,3 +1,5 @@
+import "./styles/index.scss";
+
 const watchesParts = {
   screws: 37,
   gears: 27,
