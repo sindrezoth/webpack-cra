@@ -1,1 +1,16 @@
 1. Initializing git repo and making first commit.
+
+2. Creating webpack.config.js and
+  2.1. Adding statis: { directory: "./dist" } for serving from that directory.
+  2.2. Adding devtool: false for webpack generated files was more readable.
+
+3. Installing babel-loader @babel/core and @babel/preset-env (and @babel/preset-react for future)
+  3.1. Creating babel.config.js.
+  3.2. Updating webpack config with modules property, that contained rules property, that contained list of objects with:
+    - rules -- what files to transpile (regex used for in that case)
+    - exclude -- ignore files (node_modules in that case)
+    - use.loader -- name of loader (babel-loader in that case)
+
+  After call npm run build babel will transform js code to older versions (for vast compatibility)
+
+4. Updating webpack.config.js adding mode switch from prod to dev and updating package.json scripts adding different command "build-dev": "webpack" for dev and changing "build" command with "NODE_ENV=production webpack"

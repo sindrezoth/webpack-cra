@@ -1,12 +1,17 @@
 {
   "private": true,
   "scripts": {
-    "start": "webpack server",
+    "start": "webpack serve",
     "watch": "webpack --watch",
-    "build": "webpack"
+    "build": "NODE_ENV=production webpack",
+    "build-dev": "webpack"
   },
   "description": "Installing required dependencies and configuring webpack for react development with dev serving and hot reloading.",
   "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "babel-loader": "^10.0.0",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"

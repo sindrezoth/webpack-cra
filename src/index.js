@@ -4,4 +4,10 @@ const watchesParts = {
   gems: 18,
 };
 
+const orientRecipe = {
+  ...watchesParts,
+  label: "Orient",
+};
+
 console.log(watchesParts);
+console.log(orientRecipe);
