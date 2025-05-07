@@ -1,15 +1,4 @@
-import "./styles/index.scss";
+import { createRoot } from "react-dom/client";
+import App from "./components/App.js";
 
-const watchesParts = {
-  screws: 37,
-  gears: 27,
-  gems: 18,
-};
-
-const orientRecipe = {
-  ...watchesParts,
-  label: "Orient",
-};
-
-console.log(watchesParts);
-console.log(orientRecipe);
+createRoot(document.getElementById("root")).render(<App />);

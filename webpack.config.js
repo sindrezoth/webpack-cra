@@ -2,11 +2,11 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let mode = "development";
-let target = "web";
+let target = "web"; // for hot updating
 
 if (process.env.NODE_ENV === "production") {
   mode = "production";
-  target = "browserslist";
+  target = "browserslist"; // for minfied version of bundles
 }
 
 module.exports = {
@@ -16,8 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        //test: /.c([a|s])?ss/
-        test: /.s?css$/i,
+        test: /.(s[ca]|c)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
@@ -26,7 +25,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/, // fit to all .js files
+        test: /\.jsx?$/, // fit to all .js files
         exclude: /node_modules/, // ignore node_modules
         use: {
           loader: "babel-loader", // use bable loader for transpiling
@@ -35,13 +34,17 @@ module.exports = {
     ],
   },
 
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin()], // make a one .css bundle of styles
+
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
 
   devtool: "source-map", // for readable code in the browser
   // devtool: false, // for readable builded files
 
   devServer: {
-    hot: true,
+    hot: true, // hot update (reload)
     static: {
       directory: path.resolve(__dirname, "./dist"), // serving from that directory
     },
