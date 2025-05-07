@@ -1,10 +1,14 @@
 {
-  "name": "webpack",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "Installing required dependencies and configuring webpack for react development with dev serving and hot reloading."
+  "private": true,
+  "scripts": {
+    "start": "webpack server",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "description": "Installing required dependencies and configuring webpack for react development with dev serving and hot reloading.",
+  "devDependencies": {
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  }
 }
