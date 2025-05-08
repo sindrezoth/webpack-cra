@@ -3,6 +3,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 let mode = "development";
 let target = "web"; // for hot updating
@@ -15,6 +16,10 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
   mode: mode,
   target: target,
+
+  entry: {
+    app: path.resolve(__dirname, "src", "index.js"), // for ReactRefreshWebpackPlugin
+  },
 
   output: {
     path: path.resolve(__dirname, "dist"), // this for clean webpack plugin
@@ -59,10 +64,11 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(), // delete dist folder before generateing new result
     new MiniCssExtractPlugin(), // make a one .css bundle of styles
+    mode !== "production" && new ReactRefreshWebpackPlugin(), // Hot module replacement (update React without refreshing and with saving state of components)
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }), // generate index.html
-  ],
+  ].filter(Boolean),
 
   resolve: {
     extensions: [".js", ".jsx"],
