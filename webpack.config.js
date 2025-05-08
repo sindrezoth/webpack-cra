@@ -13,8 +13,26 @@ module.exports = {
   mode: mode,
   target: target,
 
+  output: {
+    assetModuleFilename: "img/[hash][ext][query]", // put imgs inside some dir (img in that case)
+  },
+
   module: {
     rules: [
+      {
+        test: /.(png|gif|jpe?g|svg)/i, // make imgs available
+
+        type: "asset", // automatic determine whether it should be like a module and whether it should be like an inline based on maxSize (8kb)
+        // type: "asset/resource", // genrate paths to the imgs inside code
+        // type: "asset/inline", // place whole image inside code but not import it as path (imgs do not appear inside dist folder)
+
+        /* // make maxSize bigger
+        parser: {
+          dataUrlCondition: {
+            maxSize: 130 * 1024,
+          },
+        }, */
+      },
       {
         test: /.(s[ca]|c)ss$/i,
         use: [
