@@ -1,5 +1,8 @@
 const path = require("path");
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 let mode = "development";
 let target = "web"; // for hot updating
@@ -14,6 +17,7 @@ module.exports = {
   target: target,
 
   output: {
+    path: path.resolve(__dirname, "dist"), // this for clean webpack plugin
     assetModuleFilename: "img/[hash][ext][query]", // put imgs inside some dir (img in that case)
   },
 
@@ -52,7 +56,13 @@ module.exports = {
     ],
   },
 
-  plugins: [new MiniCssExtractPlugin()], // make a one .css bundle of styles
+  plugins: [
+    new CleanWebpackPlugin(), // delete dist folder before generateing new result
+    new MiniCssExtractPlugin(), // make a one .css bundle of styles
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }), // generate index.html
+  ],
 
   resolve: {
     extensions: [".js", ".jsx"],

@@ -26,3 +26,20 @@
     Adding plugins field with array contained "mini-css-extract-plugin" object created inside it.
 
   5.3. Adding .broserslistrc for trasform css for compatibility.
+
+6. Images supporting.
+  6.1. Adding new rule /.(png|gif|jpe?g|svg)/i, 
+  6.2. Types of implementing:
+    - "asset": automatic determine whether it should be like a module and whether it should be like an inline based on maxSize (8kb)
+    - "asset/resource": genrate paths to the imgs inside code
+    - "asset/inline": place whole image inside code but not import it as path (imgs do not appear inside dist folder)
+  6.3. Change default max size of image (for inserting whole image inside code);
+    ```javascript
+    parser: {
+      dataUrlCondition: {
+        maxSize: 130 * 1024,
+      },
+    }
+    ```
+
+7. HTML generation. Add html-webpack-plugin for html generation and clean-webpack-plugin for removing dist before building process.
