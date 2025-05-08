@@ -43,3 +43,6 @@
     ```
 
 7. HTML generation. Add html-webpack-plugin for html generation and clean-webpack-plugin for removing dist before building process.
+
+8. Hot module replacement.
+  8.1. Configurating HMR.

@@ -4,7 +4,7 @@
     "start": "webpack serve",
     "watch": "webpack --watch",
     "build": "NODE_ENV=production webpack",
-    "build-dev": "webpack",
+    "build-dev": "NODE_ENV=production webpack",
     "clean": "rm -rf dist"
   },
   "description": "Installing required dependencies and configuring webpack for react development with dev serving and hot reloading.",
