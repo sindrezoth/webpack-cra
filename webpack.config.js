@@ -18,7 +18,7 @@ module.exports = {
   target: target,
 
   entry: {
-    app: path.resolve(__dirname, "src", "index.js"), // for ReactRefreshWebpackPlugin
+    main: path.resolve(__dirname, "src", "index.js"), // for ReactRefreshWebpackPlugin
   },
 
   output: {

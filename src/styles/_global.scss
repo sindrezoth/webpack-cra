@@ -34,14 +34,11 @@ h1 {
 
   backdrop-filter: blur(10px);
   color: whitesmoke;
-}
 
-.app-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: 1s;
 }
 
 button {
